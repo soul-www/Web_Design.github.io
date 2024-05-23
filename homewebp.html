@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEYTAPS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: -1px;
+            padding: -1px;
+        }
+        header {
+            color: white;
+            height: 700px;
+            padding: 10px;
+            text-align: center;
+            background-image: url('440886688_359276830471055_3878922411430894433_n.png');
+            background-size: cover;
+            background-position: center;
+        }
+        nav ul {
+            list-style-type: none;
+        }
+        nav ul li {
+            display: inline;
+            margin: 50px;
+            font-size: 25px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+        }
+        .container {
+            padding: 20px;
+        }
+        .product, .featured-product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            background-color: #fff;
+        }
+        .product img, .featured-product img {
+            width: 200px;
+            height: 200px;
+        }
+        .product-name {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .product-price {
+            color: #333;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="about us webp.html">About Us</a></li>
+                <li><a href="Contact us webp.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container" id="home">
+        <h2>Products</h2>
+        <div class="product">
+            <img src="k606-4_1024x1024.webp" alt="Keyboard 1">
+            <div class="product-name">Redragon K606 Lakshmi 61-Key Mechanical</div>
+            <p>the Redragon K606 LAKSHMI Mechanical Gaming Keyboard. Featuring Red switches for tactile responsiveness, dynamic RGB backlighting, and a durable black design.</p>
+            <div class="product-price">₱1,025.00</div>
+            <button onclick="addToCart(1025)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="Screenshot 2024-05-21 184257.png" alt="Keyboard 2">
+            <div class="product-name">Leaven K620 Mechanical Keyboard Hot-swappable 61Key RGB Backlit Detachable Type-C Wired</div>
+            <p>The Leaven K620 Mechanical Keyboard is a compact, 61-key device designed for efficient and customizable typing experiences. It features hot-swappable switches,<br>
+              allowing users to easily change out switches without soldering. The keyboard boasts RGB backlighting for vibrant, customizable lighting effects,<br>
+              enhancing both aesthetics and visibility. It connects via a detachable Type-C wired connection, ensuring a stable and reliable link to your computer<br>
+            while offering the convenience of easy disconnection and portability. Ideal for gamers, typists, and enthusiasts who appreciate both form and function in their keyboard.</p>
+            <div class="product-price">₱620.00</div>
+            <button onclick="addToCart(620)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="Screenshot 2024-05-21 185045.png" alt="Keyboard 3">
+            <div class="product-name">Logitech ERGO K860 2.4G Wireless Keyboard Bluetooth Dual Mode Ergonomic Split Keyboard</div>
+            <p>Logitech ERGO K860 Wireless Ergonomic Qwerty Keyboard - Split Keyboard, Wrist Rest, Natural Typing,<br>
+            Stain-Resistant Fabric, Bluetooth and USB Connectivity, Compatible with Windows/Mac,Black. </p>
+            <div class="product-price">₱6,080.00</div>
+            <button onclick="addToCart(6080)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="Screenshot 2024-05-21 192837.png" alt="Keyboard 4">
+            <div class="product-name">Womier S-K80 75% Keyboard with Color Multimedia Display Mechanical Gaming Keyboard</div>
+            <p>Experience maximum comfort while gaming with the S-K80's gasket mount design.<br>
+            The keyboard features an EVA positioning plate and bottom filling for a soft and responsive feel.</p>
+            <div class="product-price">₱4,074.00</div>
+            <button onclick="addToCart(4074)">Add to Cart</button>
+        </div>
+        <!-- Add more products as needed -->
+        
+        <h3>Order Summary</h3>
+        <div id="order-summary"></div>
+        <div id="total"></div>
+    </div>
+    <h2>Featured Products</h2>
+    <div class="featured-product">
+            <img src="k606-4_1024x1024.webp" alt="Keyboard 1">
+            <div class="product-name">Redragon K606 Lakshmi 61-Key Mechanical</div>
+            <p>the Redragon K606 LAKSHMI Mechanical Gaming Keyboard. Featuring Red switches for tactile responsiveness, dynamic RGB backlighting, and a durable black design.</p>
+            <div class="product-price">₱1,025.00</div>
+            <button onclick="addToCart(1025)">Add to Cart</button>
+    </div>
+    <div class="featured-product">
+        <img src="Screenshot 2024-05-21 193616.png" alt="Keyboard 6">
+        <div class="product-name">Redragon K617 FIZZ Mechanical Wired RGB Gaming Keyboard Gray White</div>
+        <p>Redragon K617 FIZZ 60% Wired RGB Gaming Keyboard, 61 Keys Compact Mechanical Keyboard w/ White & Grey Mixed-Colored Keycaps, Linear Red Switch, Pro Driver Support</p>
+        <div class="product-price">₱1,400.00</div>
+        <button onclick="addToCart(1400)">Add to Cart</button>
+    </div>
+ &nbsp; &nbsp;
+  &nbsp; &nbsp;
+    <script>
+        let cart = [];
+        function addToCart(price) {
+            cart.push(price);
+            updateOrderSummary();
+        }
+
+        function updateOrderSummary() {
+            let summary = '';
+            let total = 0;
+            cart.forEach((price, index) => {
+                summary += `Product ${index + 1}: $${price}<br>`;
+                total += price;
+            });
+            document.getElementById('order-summary').innerHTML = summary;
+            document.getElementById('total').innerHTML = `<strong>Total: $${total}</strong>`;
+        }
+    </script>
+</body>
+</html>
